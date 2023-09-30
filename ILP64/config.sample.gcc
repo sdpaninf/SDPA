@@ -1,0 +1,7 @@
+export CC=gcc
+export CXX=g++
+export F77=gfortran
+export CFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -DINTSIZE64 -DDIMACS_PRINT"
+export CXXFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -DINTSIZE64 -DDIMACS_PRINT"
+export FFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -fdefault-integer-8 -fallow-argument-mismatch"
+./configure --with-blas="-L./lib -lopenblas -lgomp" --with-lapack="-L./lib -lopenblas -lgomp" 

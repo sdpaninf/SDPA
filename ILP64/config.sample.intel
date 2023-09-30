@@ -1,0 +1,9 @@
+export INTEL_LIB=/opt/intel/oneapi/mkl/latest/lib/intel64
+export INTEL_LIB2=/opt/intel/oneapi/compiler/latest/linux/compiler/lib/intel64_lin
+export CC=icx
+export CXX=icpx
+export F77=ifort
+export CFLAGS="-O3 -fiopenmp -xHost -DINTSIZE64 -DDIMACS_PRINT"
+export CXXFLAGS="-O3 -fiopenmp -xHost -DINTSIZE64 -DDIMACS_PRINT"
+export FFLAGS="-O3 -i8 -fopenmp -xHost"
+./configure --with-blas="-L${INTEL_LIB} -L${INTEL_LIB2} -lmkl_intel_ilp64 -lmkl_intel_thread -lmkl_core -liomp5" --with-lapack="-L${INTEL_LIB} -L${INTEL_LIB2} -lmkl_lapack95_ilp64 -liomp5 -lgomp -lpthread"

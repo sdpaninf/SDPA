@@ -1,0 +1,140 @@
+SDPA 7.4.4 from SDPA 7.4.1 / 2023-09-30 Katsuki Fujisawa
+	
+	* Resolving memory leaks
+	
+SDPA 7.4.0 from SDPA 7.3.1 / 2016-12-15 Katsuki Fujisawa
+
+	* ILP64 programming model for extremely large-scale matrix computation(necessary for indexing huge arrays, with more than 2^31-1 elements).
+	
+	
+SDPA 7.3.1 from SDPA 7.3.0 / 2009-07-29 Makoto Yamashita
+
+	* Introduce multiple threading
+	* Change data structures for input data matrices
+	* Add sedumiwrap.m (SeDuMi wrapper for SDPA-M)
+	  [For details, try 'help sedumiwrap' in Matlab after installation]
+	* Remove small bugs
+	
+
+****************************************************************
+Before git management change log
+****************************************************************
+2008-05-21 Kazuhide Nakata
+
+	* Add correction routin for Sparse Cholesky decomposition
+	* Add "#include <algorithm>" in sdpa_io.cpp
+	* Modify IO::displayDenseLinarSpaceLast
+	* Move "#define P_FORMAT "%+8.3e" from sdpa_struct.cpp to sdpa_struct.h
+
+2008-03-12 Kazuhide Nakata
+
+	* Modify algorithm of preconditioning for moderate sparse SDP
+	    making graph, fill-in, etc. in sdpa_chrdal.cpp
+	    initialization of newton class in sdpa_newton.cpp
+
+2008-02-29 Kazuhide Nakata
+
+	* Initialize block index of SparseLinearSpace without huge array
+		SDP_CNonZeroCount, SDP_ANonZeroCount,
+		SOCP_CNonZeroCount, SOCP_ANonZeroCount,
+		LP_CNonZeroCount, LP_ANonZeroCount.
+
+2008-02-15 Maho Nakata <maho@riken.jp>
+
+	* SDPA 705 RC8. 
+	* Change the order of LAPACK and BLAS libs at configure.
+          It will become a problem when an incomplete 
+          liblapack.a exists at the BLAS directory (usually
+          caused by the normal ATLAS installation).
+
+2008-02-13 Maho Nakata <maho@riken.jp>
+
+	* SDPA 705 RC7. 
+	* Change archive name and directory to the standard ones.
+	* Add dummy variable in sdpa_io.cpp to workaround gcc-3.3
+	optimization bug.
+        * Parameters are now accord with the manual.
+            PARAMETER_AGGRESSIVE -> PARAMETER_UNSTABLE_BUT_FAST
+	    PARAMETER_STABLE -> PARAMETER_STABLE_BUT_SLOW
+	
+2008-02-09 Maho Nakata <maho@riken.jp>
+
+	* SDPA 705 RC6
+	* Cleanups.
+
+2008-02-08 Maho Nakata <maho@riken.jp>
+
+	* SDPA 705 RC4
+        * the last fix was not included; submmitted by
+          K. Nakata.
+ 
+2008-02-08 Maho Nakata <maho@riken.jp>
+
+	* SDPA 705 RC3
+      	 sdpa_main.cpp:static double KAPPA = 2.2; 
+              ->   static double KAPPA = 7.0; 
+
+2008-02-07 Kazuhide Nakata
+
+        * Support DIMACS errors
+	* SDPA 705 RC2
+
+2008-02-07 Maho Nakata <maho@riken.jp>
+
+	* SDPA 705 RC1.
+
+2008-01-22 Maho Nakata <maho@riken.jp>
+
+	* Pass -O2 -funroll-all-loops to compilers.
+
+2007-12-10 Maho Nakata <maho@riken.jp>
+
+	* Include spooles archive.
+        * Three useMetis to UseMetis (From Kazuhide Nakata).
+        * Disable Metis by default.
+	* Support MacOSX. Tested on MacOSX Tiger Intel & PPC.
+
+2007-11-29 Kazuhide Nakata
+
+	* Support multiple LP block
+	* Remove METIS library
+	* Add check routin in SparseLinearSpace::setElement_SDP, DenseLinearSpace::setElement_SDP
+
+2007-10-16  Kazuhide Nakata
+
+	* Support zero matrix and LP problem
+	* Modify SparseLinearSpace::copyFrom,  SparseLinearSpace::initialize
+	*        workVariables::initialize
+
+2007-09-18  Kazuhide Nakata
+
+        * Modify stopping criteria and step length.
+        * Add SolveInfo::check (print various information of current point)
+
+2007-06-29  Kazuhide Nakata <knakata@me.titech.ac.jp>
+
+        * Modify algorithm in sdpa::UTSpMat::Form_Aggregate.
+        * Fix memory leaks via valgrind.
+        * Change type of variable "LP_NonZeroNumber" from int to bool.
+        * Modify variable names in sdpa::SparseLinearSpace::SparseLinearSpace.
+
+2007-06-27  Maho Nakata <maho@riken.jp>
+
+        * Remove GPL.txt. We have COPYING instead, and it is newer.
+
+2007-06-04  Maho Nakata <maho@riken.jp>
+
+        * Reorder LAPACK/BLAS at linker (submitted by Makoto Yamashita).
+
+2007-06-01  Maho Nakata <maho@riken.jp>
+
+        * Initial support for configure script.
+
+
+/*------------------------------------------
+  Version Code Name
+
+  SDPA 6 : Rosemary/2003Aug
+  SDPA 7 : Margaret/2008Feb
+
+------------------------------------------*/
