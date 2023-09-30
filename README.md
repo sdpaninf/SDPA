@@ -6,7 +6,9 @@ Older versions of SDPA and manuals are available at
 https://sdpa.sourceforge.net/
 
 The latest version 7.4.4 supports the following features
+
 1: ILP64 (int = 64bit) support. It can handle huge problems!
+
 2: Parallel computation (multi-threading) for faster search direction computation, etc.
 
 ILP64 support can solve huge problems, but it consumes more memory than LP64 and slows down the speed a little.
