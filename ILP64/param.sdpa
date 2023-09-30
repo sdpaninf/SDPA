@@ -1,0 +1,15 @@
+200	unsigned int maxIteration;
+1.0E-8	double 0.0 < epsilonStar;
+1.0E2   double 0.0 < lambdaStar;
+2.0   	double 1.0 < omegaStar;
+-1.0E20  double lowerBound;
+1.0E20   double upperBound;
+0.1     double 0.0 <= betaStar <  1.0;
+0.2     double 0.0 <= betaBar  <  1.0, betaStar <= betaBar;
+0.9     double 0.0 < gammaStar  <  1.0;
+1.0E-8	double 0.0 < epsilonDash;
+%+10.16e     char*  xPrint   (default %+8.3e,   NOPRINT skips printout)
+%+10.16e     char*  XPrint   (default %+8.3e,   NOPRINT skips printout)
+%+10.16e     char*  YPrint   (default %+8.3e,   NOPRINT skips printout)
+%+10.16e   char*  infPrint (default %+10.16e, NOPRINT skips printout)
+

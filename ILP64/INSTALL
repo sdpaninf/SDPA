@@ -1,0 +1,57 @@
+1: OpenBLAS packages
+
+Installation from OpenBLAS Source 
+Download from project homepage. http://xianyi.github.com/OpenBLAS/
+Or, check out codes from git://github.com/xianyi/OpenBLAS.git
+
+2: How to making an SDPA binary
+
+
+A: OpenBLAS Library
+
+cd OpenBLAS
+>    Change the Makefile.rule as follows;
+>    # USE_OPENMP = 1 --> USE_OPENMP = 1
+>    # INTERFACE64 = 1 -->  INTERFACE64 = 1
+make clean
+make
+cd ..
+make distclean
+export CC=gcc
+export CXX=g++
+export F77=gfortran
+export CFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -DDIMACS_PRINT"
+export CXXFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -DDIMACS_PRINT"
+export FFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -fallow-argument-mismatch"
+./configure --with-blas="-L./lib -lopenblas -lgomp" --with-lapack="-L./lib -lopenblas -lgomp"
+make
+
+
+B: Intel Compiler and MKL Library
+
+make distclean
+export INTEL_LIB=/opt/intel/oneapi/mkl/latest/lib/intel64
+export INTEL_LIB2=/opt/intel/oneapi/compiler/latest/linux/compiler/lib/intel64_lin
+export CC=icx
+export CXX=icpx
+export F77=ifx
+export CFLAGS="-O3 -qopenmp -xHost -DDIMACS_PRINT"
+export CXXFLAGS="-O3 -qopenmp -xHost -DDIMACS_PRINT"
+export FFLAGS="-O3 -qopenmp -xHost"
+./configure --with-blas="-L${INTEL_LIB} -L${INTEL_LIB2} -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5" --with-lapack="-L${INTEL_LIB} -L${INTEL_LIB2} -lmkl_lapack95_lp64 -liomp5 -lgomp -lpthread"
+make
+
+
+3: How to execute an SDPA binary
+
+export OMP_NUM_THREADS=??? (# of threads for SDPA and BLAS Library)
+
+For example,
+export OMP_NUM_THREADS=8 (If your computer has 8 CPU cores.)
+
+./sdpa intputfile outputfile
+
+
+
+ 
+
