@@ -261,7 +261,8 @@ nobase_mumps_HEADERS = mumps/build/include/dmumps_c.h \
 mumps/build/include/dmumps_root.h \
 mumps/build/include/dmumps_struc.h \
 mumps/build/include/mumps_c_types.h \
-mumps/build/include/mumps_compat.h
+mumps/build/include/mumps_compat.h \
+mumps/build/include/mumps_int_def.h
 
 nobase_mumps_DATA = mumps/build/lib/libdmumps.a \
 mumps/build/lib/libmumps_common.a \
