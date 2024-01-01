@@ -15,3 +15,5 @@ ILP64 support can solve huge problems, but it consumes more memory than LP64 and
 First select LP64 (int = 32bit) or ILP (int = 64bit).
 
 See the INSTALL file for information on how to create binaries.
+
+Last updated January 1, 2024
