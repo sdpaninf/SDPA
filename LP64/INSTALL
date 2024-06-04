@@ -40,7 +40,7 @@ export CFLAGS="-O3 -qopenmp -xHost -DDIMACS_PRINT"
 export CXXFLAGS="-O3 -qopenmp -xHost -DDIMACS_PRINT"
 export FFLAGS="-O3 -qopenmp -xHost"
 ./configure --with-blas="-L${INTEL_LIB} -L${INTEL_LIB2} -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5" --with-lapack="-L${INTEL_LIB} -L${INTEL_LIB2} -lmkl_lapack95_lp64 -liomp5 -lgomp -lpthread"
-make
+make; make
 
 
 3: How to execute an SDPA binary
