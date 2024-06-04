@@ -272,7 +272,7 @@ void Parameter::display(FILE* fpout, char* printFormat)
     fprintf(fpout,"%s\n",NO_P_FORMAT);
     return;
   }
-  fprintf(fpout, "** Paramters **\n");
+  fprintf(fpout, "** Parameters **\n");
   fprintf(fpout, "maxIteration = %d\n",maxIteration);
   fprintf(fpout, "epsilonStar  = ");
   fprintf(fpout, printFormat, epsilonStar );
