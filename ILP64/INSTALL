@@ -37,11 +37,11 @@ export INTEL_LIB2=/opt/intel/oneapi/compiler/latest/linux/compiler/lib/intel64_l
 export CC=icx
 export CXX=icpx
 export F77=ifx
-export CFLAGS="-O3 -qopenmp -xHost  -DINTSIZE64 -DDIMACS_PRINT"
-export CXXFLAGS="-O3 -qopenmp -xHost  -DINTSIZE64 -DDIMACS_PRINT"
-export FFLAGS="-O3 -i8 -qopenmp -xHost"
-./configure --with-blas="-L${INTEL_LIB} -L${INTEL_LIB2} -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -liomp5" --with-lapack="-L${INTEL_LIB} -L${INTEL_LIB2} -lmkl_lapack95_lp64 -liomp5 -lgomp -lpthread"
-make
+export CFLAGS="-O3 -fiopenmp -xHost -DINTSIZE64 -DDIMACS_PRINT"
+export CXXFLAGS="-O3 -fiopenmp -xHost -DINTSIZE64 -DDIMACS_PRINT"
+export FFLAGS="-O3 -i8 -fopenmp -xHost"
+./configure --with-blas="-L${INTEL_LIB} -L${INTEL_LIB2} -lmkl_intel_ilp64 -lmkl_intel_thread -lmkl_core -liomp5" --with-lapack="-L${INTEL_LIB} -L${INTEL_LIB2} -lmkl_lapack95_ilp64 -liomp5 -lgomp -lpthread"
+make; make
 
 
 3: How to execute an SDPA binary
