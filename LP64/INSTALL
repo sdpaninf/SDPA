@@ -10,7 +10,7 @@ Or, check out codes from git://github.com/xianyi/OpenBLAS.git
 A: OpenBLAS Library
 
 cd LP64
-git clone git://github.com/xianyi/OpenBLAS.git
+git clone https://github.com/OpenMathLib/OpenBLAS.git
 cd OpenBLAS
 >    Change the Makefile.rule as follows;
 >    # USE_OPENMP = 1 --> USE_OPENMP = 1
