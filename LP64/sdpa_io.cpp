@@ -112,7 +112,11 @@ void IO::read(FILE* fpData, DenseLinearSpace& xMat,
       if (fscanf(fpData,"%*[^0-9+-]%lf",&value)<=0) {
 	break;
       }
-      #if 0
+
+      if (value == 0.0)
+        continue;
+      
+#if 0
       rMessage("target = " << target
 	       << ": l " << l
 	       << ": i " << i
