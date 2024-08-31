@@ -1,4 +1,4 @@
-MUMPS_VER = 5.6.1
+MUMPS_VER = 5.7.0
 
 SDPA_MAKEFILE = ../Makefile
 # This file is automatically made by './configure' script
