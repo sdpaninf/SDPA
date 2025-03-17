@@ -12,11 +12,8 @@ A: OpenBLAS Library
 cd ILP64
 git clone https://github.com/OpenMathLib/OpenBLAS.git
 cd OpenBLAS
->    Change the Makefile.rule as follows;
->    # USE_OPENMP = 1 --> USE_OPENMP = 1
->    # INTERFACE64 = 1 -->  INTERFACE64 = 1
 make clean
-make
+make CC=gcc FC=gfortran USE_OPENMP=1 INTERFACE64=1
 cd ..
 make distclean
 export CC=gcc
