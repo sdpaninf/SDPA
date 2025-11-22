@@ -1,0 +1,64 @@
+1: OpenBLAS packages
+
+Installation from OpenBLAS Source 
+Download from project homepage. http://xianyi.github.com/OpenBLAS/
+Or, check out codes from git://github.com/xianyi/OpenBLAS.git
+
+
+
+2: How to making an SDPA binary
+
+A: OpenBLAS Library (ILP64)
+
+cd GENERAL
+git clone https://github.com/OpenMathLib/OpenBLAS.git
+cd OpenBLAS
+make clean
+make CC=gcc FC=gfortran USE_OPENMP=1 INTERFACE64=1
+cd ..
+make distclean
+export CC=gcc
+export CXX=g++
+export F77=gfortran
+export CFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -DINTSIZE64 -DDIMACS_PRINT"
+export CXXFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -DINTSIZE64 -DDIMACS_PRINT"
+export FFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -fdefault-integer-8 -fallow-argument-mismatch"
+./configure --with-blas="-L./lib -lopenblas -lgomp" --with-lapack="-L./lib -lopenblas -lgomp"
+make
+
+
+A: OpenBLAS Library (LP64)
+
+cd GENERAL
+git clone https://github.com/OpenMathLib/OpenBLAS.git
+cd OpenBLAS
+make clean
+make CC=gcc FC=gfortran USE_OPENMP=1
+cd ..
+make distclean
+export CC=gcc
+export CXX=g++
+export F77=gfortran
+export CFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -DDIMACS_PRINT"
+export CXXFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -DDIMACS_PRINT"
+export FFLAGS="-funroll-all-loops -O2 -m64 -fopenmp -fallow-argument-mismatch"
+./configure --with-blas="-L./lib -lopenblas -lgomp" --with-lapack="-L./lib -lopenblas -lgomp"
+make
+
+
+
+
+
+3: How to execute an SDPA binary
+
+export OMP_NUM_THREADS=??? (# of threads for SDPA and BLAS Library)
+
+For example,
+export OMP_NUM_THREADS=8 (If your computer has 8 CPU cores.)
+
+./sdpa intputfile outputfile
+
+
+
+ 
+
