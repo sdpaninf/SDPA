@@ -19,4 +19,4 @@ Examples: Raspberry Pi, NVIDIA DGX Spark, NVIDIA Jetson, Apple Silicon M-series,
 
 See the INSTALL file for information on how to create binaries.
 
-Last updated November, 2025
+Last updated : November 22, 2025
