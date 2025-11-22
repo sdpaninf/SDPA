@@ -14,6 +14,9 @@ The latest version 7.4.4 supports the following features
 ILP64 support can solve huge problems, but it consumes more memory than LP64 and slows down the speed a little.
 First select LP64 (int = 32bit) or ILP (int = 64bit).
 
+If you are using a CPU other than x64 (Intel or AMD), please select GENERAL.
+Examples: Raspberry Pi, NVIDIA DGX Spark, NVIDIA Jetson, Apple Silicon M-series, etc.
+
 See the INSTALL file for information on how to create binaries.
 
 Last updated November, 2025
