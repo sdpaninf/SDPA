@@ -1314,7 +1314,7 @@ bool Lal::multiply(DenseMatrix& retMat,
 bool Lal::multiply(DenseMatrix& retMat,
 		   DenseMatrix& aMat, double* scalar)
 {
-  if (retMat.nRow!=aMat.nRow || retMat.nCol!=retMat.nCol
+  if (retMat.nRow!=aMat.nRow || retMat.nCol!=aMat.nCol
       || retMat.type!=aMat.type) {
     rError("multiply :: different matrix size");
   }

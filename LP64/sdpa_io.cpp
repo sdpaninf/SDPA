@@ -38,7 +38,7 @@ void IO::read(FILE* fpData, FILE* fpout, SDPA_INT& m, char* str)
     if (str[0]=='*' || str[0]=='"') {
       fprintf(fpout,"%s",str);
     } else {
-      sscanf(str,"%ld",&m);
+      sscanf(str,"%d",&m);
       break;
     }
   }

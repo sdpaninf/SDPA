@@ -40,11 +40,12 @@ libsdpa_a_CXXFLAGS = $(pthread_cflags) -fPIC -I$(MUMPS_DIR)/include
 
 bin_PROGRAMS = sdpa
 sdpa_SOURCES = sdpa_exe.cpp
-sdpa_LDADD = $(pthread_lib) -L. -lsdpa -L$(MUMPS_DIR)/lib  -ldmumps -lmumps_common -lpord -L$(MUMPS_DIR)/libseq -lmpiseq $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS) 
+sdpa_LDADD = libsdpa.a $(pthread_lib) -L$(MUMPS_DIR)/lib  -ldmumps -lmumps_common -lpord -L$(MUMPS_DIR)/libseq -lmpiseq $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)
+
+
 sdpa_CXXFLAGS = $(pthread_cflags)  -fPIC -I$(MUMPS_DIR)/include
 
 nobase_mumps_HEADERS = mumps/build/include/dmumps_c.h \
-#mumps/build/include/dmumps_root.h \
 mumps/build/include/dmumps_struc.h \
 mumps/build/include/mumps_c_types.h \
 mumps/build/include/mumps_compat.h
