@@ -22,7 +22,7 @@ export CFLAGS="-funroll-all-loops -O2 -fopenmp -DINTSIZE64 -DDIMACS_PRINT"
 export CXXFLAGS="-funroll-all-loops -O2 -fopenmp -DINTSIZE64 -DDIMACS_PRINT"
 export FFLAGS="-funroll-all-loops -O2 -fopenmp -fdefault-integer-8 -fallow-argument-mismatch"
 ./configure --with-blas="-L./lib -lopenblas -lgomp" --with-lapack="-L./lib -lopenblas -lgomp"
-make
+make -j $(nproc)
 
 
 3: How to execute an SDPA binary

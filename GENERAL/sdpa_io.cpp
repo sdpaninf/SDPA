@@ -637,7 +637,7 @@ void IO::printOneIteration(SDPA_INT pIteration,
     }
   
     #if REVERSE_PRIMAL_DUAL
-    fprintf(fp,"%2d %4.1e %4.1e %4.1e %+7.2e %+7.2e"
+    fprintf(fp,"%2ld %4.1e %4.1e %4.1e %+7.2e %+7.2e"
 	    " %4.1e %4.1e %4.2e\n", pIteration, mu.current,
 	    theta.dual, theta.primal,
 	    -solveInfo.objValDual,-solveInfo.objValPrimal,

@@ -113,15 +113,15 @@ void BlockStruct::display(FILE* fpout)
     return;
   }
   fprintf(fpout,"--- BlockStruct ---\n");
-  fprintf(fpout,"nBlock = %d\n",nBlock);
+  fprintf(fpout,"nBlock = %ld\n",nBlock);
   fprintf(fpout,"blockStruct = \n");
   for (SDPA_INT l=0; l<nBlock; ++l) {
-    fprintf(fpout,"%5d,",blockStruct[l]);
+    fprintf(fpout,"%5ld,",blockStruct[l]);
   }
   fprintf(fpout,"\n");
   fprintf(fpout,"blockNumber = \n");
   for (SDPA_INT l=0; l<nBlock; ++l) {
-    fprintf(fpout,"%5d,",blockNumber[l]);
+    fprintf(fpout,"%5ld,",blockNumber[l]);
   }
   fprintf(fpout,"\n");
   fprintf(fpout,"blockType = \n");
@@ -137,19 +137,19 @@ void BlockStruct::display(FILE* fpout)
     fprintf(fpout,"    %c,",displaychar);
   }
   fprintf(fpout,"\n");
-  fprintf(fpout,"SDP_nBlock = %d\n",SDP_nBlock);
+  fprintf(fpout,"SDP_nBlock = %ld\n",SDP_nBlock);
   fprintf(fpout,"SDP_blockStruct = \n");
   for (SDPA_INT l=0; l<SDP_nBlock; ++l) {
-    fprintf(fpout,"%5d,",SDP_blockStruct[l]);
+    fprintf(fpout,"%5ld,",SDP_blockStruct[l]);
   }
   fprintf(fpout,"\n");
-  fprintf(fpout,"SOCP_nBlock = %d\n",SOCP_nBlock);
+  fprintf(fpout,"SOCP_nBlock = %ld\n",SOCP_nBlock);
   fprintf(fpout,"SOCP_blockStruct = \n");
   for (SDPA_INT l=0; l<SOCP_nBlock; ++l) {
-    fprintf(fpout,"%5d,",SOCP_blockStruct[l]);
+    fprintf(fpout,"%5ld,",SOCP_blockStruct[l]);
   }
   fprintf(fpout,"\n");
-  fprintf(fpout,"LP_nBlock = %d\n",LP_nBlock);
+  fprintf(fpout,"LP_nBlock = %ld\n",LP_nBlock);
   fprintf(fpout,"--- BlockStruct ---\n");
 }
 

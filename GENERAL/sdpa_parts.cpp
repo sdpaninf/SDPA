@@ -230,7 +230,7 @@ char Parameter::infPRINT_DEFAULT[PRINT_DEFAULT_LENGTH] = "%+10.16e";
 
 void Parameter::readFile(FILE* parameterFile)
 {
-  fscanf(parameterFile,"%d%*[^\n]",&maxIteration);
+  fscanf(parameterFile,"%ld%*[^\n]",&maxIteration);
   fscanf(parameterFile,"%lf%*[^\n]",&epsilonStar);
   fscanf(parameterFile,"%lf%*[^\n]",&lambdaStar);
   fscanf(parameterFile,"%lf%*[^\n]",&omegaStar);
@@ -273,7 +273,7 @@ void Parameter::display(FILE* fpout, char* printFormat)
     return;
   }
   fprintf(fpout, "** Paramters **\n");
-  fprintf(fpout, "maxIteration = %d\n",maxIteration);
+  fprintf(fpout, "maxIteration = %ld\n",maxIteration);
   fprintf(fpout, "epsilonStar  = ");
   fprintf(fpout, printFormat, epsilonStar );
   fprintf(fpout, "\n");

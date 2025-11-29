@@ -389,7 +389,7 @@ void SparseMatrix::display(FILE* fpout, char* printFormat)
 	j        = DataS[index].vCol;
 	value    = DataS[index].vEle;
       }
-      fprintf(fpout,"val[%d,%d] = ", i,j);
+      fprintf(fpout,"val[%ld,%ld] = ", i,j);
       fprintf(fpout,printFormat,value);
       fprintf(fpout,"\n");
     }
@@ -1170,7 +1170,7 @@ void SparseLinearSpace::display(FILE* fpout, char* printFormat)
   if (SDP_sp_nBlock>0 && SDP_sp_index && SDP_sp_block) {
     fprintf(fpout,"SDP part{\n");
     for (SDPA_INT l=0; l<SDP_sp_nBlock; ++l) {
-      fprintf(fpout,"block %d\n",SDP_sp_index[l]);
+      fprintf(fpout,"block %ld\n",SDP_sp_index[l]);
       SDP_sp_block[l].display(fpout,printFormat);
     }
     fprintf(fpout,"} \n");
@@ -1180,7 +1180,7 @@ void SparseLinearSpace::display(FILE* fpout, char* printFormat)
   if (SOCP_sp_nBlock>0 && SOCP_sp_index && SOCP_sp_block) {
     fprintf(fpout,"SOCP part{\n");
     for (SDPA_INT l=0; l<SOCP_sp_nBlock; ++l) {
-      fprintf(fpout,"block %d\n",SOCP_sp_index[l]);
+      fprintf(fpout,"block %ld\n",SOCP_sp_index[l]);
       SOCP_sp_block[l].display(fpout,printFormat);
     }
     fprintf(fpout,"} \n");
@@ -1190,7 +1190,7 @@ void SparseLinearSpace::display(FILE* fpout, char* printFormat)
   if (LP_sp_nBlock>0 && LP_sp_index && LP_sp_block) {
     fprintf(fpout,"LP part{\n");
     for (SDPA_INT l=0; l<LP_sp_nBlock; ++l) {
-      fprintf(fpout,"index: %d, element ",LP_sp_index[l]);
+      fprintf(fpout,"index: %ld, element ",LP_sp_index[l]);
       fprintf(fpout,printFormat,LP_sp_block[l]);
       fprintf(fpout,"\n");
     }

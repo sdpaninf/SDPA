@@ -438,7 +438,7 @@ void Chordal::ordering_bMat(SDPA_INT m, SDPA_INT nBlock,
     #else
     fprintf(Display, "Full Schur Elements %ld, %.2e\n",
 	    (SDPA_INT)((double)m*m),(double)m*m);
-    fprintf(Display, "Agg %d (%.2e%%)->Ext %d (%.2e%%)"
+    fprintf(Display, "Agg %ld (%.2e%%)->Ext %d (%.2e%%)"
 	    " [Fill %d (%.2e%%)]\n",
 	    NonZeroAggregate,
 	    (double)NonZeroAggregate*overM2,
@@ -449,10 +449,10 @@ void Chordal::ordering_bMat(SDPA_INT m, SDPA_INT nBlock,
     fprintf(Display, "Est FLOPs Elim = %.2e:",
 	    mumps_id.rinfog[1-1]);
     fprintf(Display,
-	    "MaxMem = %dMB = %.2lfGB:",
+	    "MaxMem = %ldMB = %.2lfGB:",
 	    mumps_id.infog[16-1],(double)mumps_id.infog[16-1]/1024);
     fprintf(Display,
-	    "TotMem = %dMB = %.2lfGB\n",
+	    "TotMem = %ldMB = %.2lfGB\n",
 	    mumps_id.infog[17-1],(double)mumps_id.infog[17-1]/1024);
     #endif
   }
@@ -478,7 +478,7 @@ void Chordal::ordering_bMat(SDPA_INT m, SDPA_INT nBlock,
   #else
     fprintf(fpOut, "Full Schur Elements Number %ld, %.2e\n",
     	    (SDPA_INT)((double)m*m),(double)m*m);
-    fprintf(fpOut, "Agg %d (%.2e%%)->Ext %d (%.2e%%)"
+    fprintf(fpOut, "Agg %ld (%.2e%%)->Ext %d (%.2e%%)"
 	    " [Fill %d (%.2e%%)]\n",
 	    NonZeroAggregate,
 	    (double)NonZeroAggregate*overM2,
@@ -489,10 +489,10 @@ void Chordal::ordering_bMat(SDPA_INT m, SDPA_INT nBlock,
     fprintf(fpOut, "Est FLOPs Elim = %.2e:",
 	    mumps_id.rinfog[1-1]);
     fprintf(fpOut,
-	    "MaxMem = %dMB = %.2lfGB:",
+	    "MaxMem = %ldMB = %.2lfGB:",
 	    mumps_id.infog[16-1],(double)mumps_id.infog[16-1]/1024);
     fprintf(fpOut,
-	    "TotMem = %dMB = %.2lfGB\n",
+	    "TotMem = %ldMB = %.2lfGB\n",
 	    mumps_id.infog[17-1],(double)mumps_id.infog[17-1]/1024);
     #endif
   }

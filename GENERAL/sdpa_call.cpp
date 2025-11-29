@@ -454,7 +454,7 @@ void SDPA::printNonZeroElements(FILE* fp)
       SDPA_INT i        = a[0].i;
       SDPA_INT j        = a[0].j;
       double value = a[0].value;
-      fprintf(fp,"%d, %d, %d, %d, ",k,l,i,j);
+      fprintf(fp,"%ld, %ld, %ld, %ld, ",k,l,i,j);
       fprintf(fp,param.infPrint,value);
       fprintf(fp,"\n");
     }
@@ -1048,7 +1048,7 @@ void SDPA::writeSparseLinearSpace(FILE* fp, char* printFormat,
 	if (k==0) {
 	  value = -value;
 	}
-	fprintf(fp,"%d %d %d %d ", k, original_l+1,i+1,j+1);
+	fprintf(fp,"%ld %ld %ld %ld ", k, original_l+1,i+1,j+1);
 	fprintf(fp,printFormat,value);
 	fprintf(fp,"\n");
       }
@@ -1063,7 +1063,7 @@ void SDPA::writeSparseLinearSpace(FILE* fp, char* printFormat,
 	  if (k==0) {
 	    value = -value;
 	  }
-	  fprintf(fp,"%d %d %d %d ", k, original_l+1,i+1,j+1);
+	  fprintf(fp,"%ld %ld %ld %ld ", k, original_l+1,i+1,j+1);
 	  fprintf(fp,printFormat,value);
 	  fprintf(fp,"\n");
 	}
@@ -1090,7 +1090,7 @@ void SDPA::writeSparseLinearSpace(FILE* fp, char* printFormat,
       }
     }
     SDPA_INT i = ik - bs.blockNumber[l2];
-    fprintf(fp, "%d %d %d %d ", k, l2+1, i+1, i+1);
+    fprintf(fp, "%ld %ld %ld %ld ", k, l2+1, i+1, i+1);
     fprintf(fp,printFormat,value);
     fprintf(fp,"\n");
   }
@@ -1102,29 +1102,29 @@ void SDPA::writeInputSparse(char* filename, char* printFormat)
   if ((fp=fopen(filename,"w"))==NULL) {
     rError("Cannot Open Data File to Write" << filename);
   }
-  fprintf(fp,"%d\n",m);
-  fprintf(fp,"%d\n",nBlock);
+  fprintf(fp,"%ld\n",m);
+  fprintf(fp,"%ld\n",nBlock);
   for (SDPA_INT l=0; l<nBlock-1; ++l) {
     if (bs.blockType[l] == BlockStruct::btSDP) {
-      fprintf(fp,"%d,",bs.blockStruct[l]);
+      fprintf(fp,"%ld,",bs.blockStruct[l]);
     }
     else if (bs.blockType[l] == BlockStruct::btSOCP) {
       rError("io:: current version does not support SOCP");
-      fprintf(fp,"%d,",bs.blockStruct[l]);
+      fprintf(fp,"%ld,",bs.blockStruct[l]);
     }
     else if (bs.blockType[l] == BlockStruct::btLP) {
-      fprintf(fp,"%d,",-bs.blockStruct[l]);
+      fprintf(fp,"%ld,",-bs.blockStruct[l]);
     }
   }
   if (bs.blockType[nBlock-1] == BlockStruct::btSDP) {
-    fprintf(fp,"%d\n",bs.blockStruct[nBlock-1]);
+    fprintf(fp,"%ld\n",bs.blockStruct[nBlock-1]);
   }
   else if (bs.blockType[nBlock-1] == BlockStruct::btSOCP) {
     rError("io:: current version does not support SOCP");
-    fprintf(fp,"%d\n",bs.blockStruct[nBlock-1]);
+    fprintf(fp,"%ld\n",bs.blockStruct[nBlock-1]);
   }
   else if (bs.blockType[nBlock-1] == BlockStruct::btLP) {
-    fprintf(fp,"%d\n",-bs.blockStruct[nBlock-1]);
+    fprintf(fp,"%ld\n",-bs.blockStruct[nBlock-1]);
   }
 
   if (strcmp(printFormat,NO_P_FORMAT) == 0) {
@@ -1168,7 +1168,7 @@ void SDPA::writeDenseLinearSpace(FILE* fp, char* printFormat,
 	if (value == 0.0) {
 	  continue;
 	}
-	fprintf(fp,"%d %d %d %d ", k,l2+1,i+1,j+1);
+	fprintf(fp,"%ld %ld %ld %ld ", k,l2+1,i+1,j+1);
 	fprintf(fp,printFormat,value);
 	fprintf(fp,"\n");
       }
@@ -1190,7 +1190,7 @@ void SDPA::writeDenseLinearSpace(FILE* fp, char* printFormat,
       }
     }
     SDPA_INT i = l - bs.blockNumber[l2];
-    fprintf(fp, "%d %d %d %d ", k, l2+1, i+1, i+1);
+    fprintf(fp, "%ld %ld %ld %ld ", k, l2+1, i+1, i+1);
     fprintf(fp,printFormat,value);
     fprintf(fp,"\n");
   }
