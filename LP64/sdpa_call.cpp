@@ -38,7 +38,7 @@ bool IndexLIJv::compare(IndexLIJv* a, IndexLIJv* b)
 
 SDPA::SDPA()
 {
-  KAPPA      = 2.5;
+  KAPPA      = 1.0;
   m          = 0;
   nBlock     = 0;
   fpout      = NULL;
