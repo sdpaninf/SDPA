@@ -25,6 +25,41 @@ export FFLAGS="-funroll-all-loops -O2 -fopenmp -fdefault-integer-8 -fallow-argum
 make -j $(nproc)
 
 
+2b: Known issues on macOS / Apple Silicon (Homebrew GCC + SDKROOT)
+
+On macOS (verified on an Apple Silicon Mac running macOS 26 with
+Xcode, no standalone Command Line Tools package installed), CC=gcc /
+FC=gfortran above must point at a real GNU toolchain, not Apple's
+clang aliased as "gcc" -- Apple clang does not support -fopenmp or
+-fdefault-integer-8, and this project needs both. Install one with
+Homebrew and use its versioned binaries:
+
+    brew install gcc
+    # use gcc-15/g++-15/gfortran-15 (or whatever version brew installs)
+    # in place of gcc/g++/gfortran below.
+
+With that alone, both the OpenBLAS build and SDPA's own ./configure
+step fail with an error like:
+
+    fatal error: _bounds.h: No such file or directory
+
+This is because Homebrew's gcc bottle is built with a hardcoded
+--with-sysroot pointing at a specific "/Library/Developer/
+CommandLineTools/SDKs/MacOSXNN.sdk" version. On a machine where only
+Xcode.app is installed (no separate Command Line Tools package), that
+exact path does not exist, gcc silently drops it, and the compiler is
+left with no system include path at all. Work around it by exporting
+SDKROOT so gcc/gfortran pick up the SDK Xcode actually provides:
+
+    export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
+
+Export this before building OpenBLAS and before running SDPA's own
+./configure and make. No source changes are needed once SDKROOT is
+set; this is purely a local toolchain/environment fix. (See the
+sibling sdpa-gmp and sdpa-dd repositories for other, unrelated macOS
+build issues found in their vendored external/ sources.)
+
+
 3: How to execute an SDPA binary
 
 export OMP_NUM_THREADS=??? (# of threads for SDPA and BLAS Library)
